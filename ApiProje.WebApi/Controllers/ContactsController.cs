@@ -25,7 +25,7 @@ namespace ApiProje.WebApi.Controllers
         [HttpPost]
         public IActionResult CreateContact(CreateContactDto createContactDto)
         {
-            Contact contact=new Contact();
+            Contact contact = new Contact();
             contact.Email = createContactDto.Email;
             contact.Address = createContactDto.Address;
             contact.Phone = createContactDto.Phone;
@@ -34,6 +34,35 @@ namespace ApiProje.WebApi.Controllers
             _context.Contacts.Add(contact);
             _context.SaveChanges();
             return Ok("Ekleme İşlemi Başarılı");
+        }
+        [HttpDelete]
+        public IActionResult DeleteContact(int id)
+        {
+            var value = _context.Contacts.Find(id);
+            _context.Contacts.Remove(value);
+            _context.SaveChanges();
+            return Ok("Silme İşlemi Başarılı");
+        }
+        [HttpGet("GetContact")]
+        public IActionResult GetContact(int id)
+        {
+            var value = _context.Contacts.Find(id);
+            return Ok(value);
+        }
+        [HttpPut]
+        public IActionResult UpdateContact(UpdateContactDto updateContactDto)
+        {
+            Contact contact = new Contact();
+            contact.Email = updateContactDto.Email;
+            contact.Address = updateContactDto.Address;
+            contact.Phone = updateContactDto.Phone;
+            contact.ContactID = updateContactDto.ContactID;
+            contact.MapLocation = updateContactDto.MapLocation;
+            contact.OpenHours = updateContactDto.OpenHours;
+            _context.Contacts.Update(contact);
+            _context.SaveChanges();
+            return Ok("Güncelleme İşlemi Başarılı");
+
         }
     }
 }
