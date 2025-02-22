@@ -1,6 +1,6 @@
 ﻿namespace ApiProje.WebApi.Dtos.FeatureDtos
 {
-    public class GeyByIdFeatureDto
+    public class GetByIdFeatureDto
     {
         public int FeatureID { get; set; }
         public string Title { get; set; }
