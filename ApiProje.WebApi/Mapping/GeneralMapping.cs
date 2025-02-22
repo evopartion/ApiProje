@@ -12,7 +12,7 @@ namespace ApiProje.WebApi.Mapping
              CreateMap<Feature,ResultFeatureDto>().ReverseMap();
              CreateMap<Feature,CreateFeatureDto>().ReverseMap();
              CreateMap<Feature,UpdateFeatureDto>().ReverseMap();
-             CreateMap<Feature,GeyByIdFeatureDto>().ReverseMap();
+             CreateMap<Feature,GetByIdFeatureDto>().ReverseMap();
              
              CreateMap<Message,ResultMessageDto>().ReverseMap();
              CreateMap<Message,CreateMessageDto>().ReverseMap();
